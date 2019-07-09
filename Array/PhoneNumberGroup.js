@@ -1,6 +1,8 @@
 let PhoneNumberGroup=str=>{
   //1、准备工作，先准备映射和按键
   let mapping=['',1,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
+  if(!str)
+  return [];
   let input=str.split('');
   let strCode=[];
 
@@ -25,6 +27,11 @@ let PhoneNumberGroup=str=>{
         }
         return arr[0];
     }
-    return comb(strCode);
+    if(strCode.length>1){
+        return comb(strCode);
+    }else{
+        return strCode[0].split('');
+    }
+    
 }
-PhoneNumberGroup('23');
+console.log(PhoneNumberGroup('2'));
